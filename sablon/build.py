@@ -12,11 +12,11 @@ def slide_html(i,n,s):
     cta='<div class="btn"><svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#FFD23F" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-5-7 5V4a1 1 0 0 1 1-1z"/></svg><span>Kaydet</span></div>' if last else ''
     return f"""<!doctype html><html lang="tr"><head><meta charset="utf-8"><style>
 *{{margin:0;padding:0;box-sizing:border-box}}
-body{{width:1080px;height:1350px;font-family:{SERIF};color:#fff;background:radial-gradient(circle at 80% 15%,#4B3F9E 0,#2A2470 45%,#16123F 100%);position:relative;overflow:hidden}}
+body{{width:1080px;height:1350px;font-family:{SERIF};color:#fff;background:radial-gradient(circle at 80% 15%,#2C6E9E 0,#13697A 45%,#0A3A4E 100%);position:relative;overflow:hidden}}
 .top{{position:absolute;left:90px;top:80px;display:flex;align-items:center;gap:26px}}
 .av{{width:124px;height:124px;border-radius:50%}}
 .nm{{font-size:46px;font-weight:700;line-height:1.1}}
-.hd{{font-family:{SANS};font-size:30px;color:#C9C3F2;margin-top:6px}}
+.hd{{font-family:{SANS};font-size:30px;color:#BFE3EE;margin-top:6px}}
 .tcnt{{position:absolute;right:90px;top:96px;font-family:{SANS};font-weight:700;font-size:28px;letter-spacing:3px}}
 .label{{position:absolute;left:90px;top:262px;font-family:{SANS};font-weight:700;letter-spacing:5px;font-size:28px;color:{ACC};text-transform:uppercase}}
 .blk{{position:absolute;left:90px;right:90px;top:330px;bottom:290px;display:flex;align-items:center}}
