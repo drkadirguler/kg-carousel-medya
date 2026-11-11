@@ -1,8 +1,40 @@
-{"theme":"petrol","slides":[
-{"label":"Diz MR'ı","stat":"10'da 6","stat_note":"MR'da menisküs yırtığı çıkan 50 yaş üstü kişilerde dizde ağrı yoktu.","text":"Yırtık çıktı diye <b>ağrının sebebi</b> o mu?"},
-{"label":"Ne bulundu","text":"Yaş ilerledikçe menisküste yıpranma <b>çok sık</b> görülüyor. Çoğu kişi bunu hiç fark etmiyor."},
-{"label":"Yani","text":"MR raporu tek başına <b>karar verdirmez.</b> Muayene bulgusuyla birlikte okunur."},
-{"label":"Kaydedin","title":"Bu belirtiler varsa <b>muayene</b> şart:","items":["Diz kilitleniyor ya da takılıyor","Belirgin şişlik var","Ağrı bir burkulmadan sonra başladı","Merdivende diz boşalıyor"]},
-{"label":"Ne yapmalı","text":"Ameliyat kararından önce <b>doğru tanı</b> ve uygun egzersiz planı."},
-{"label":"Sonuç","text":"MR'a değil, <b>dizinize</b> bakalım.","share":"Diz MR'ı çektiren birine gönderin."}
-]}
+{
+ "theme": "petrol",
+ "slides": [
+  {
+   "label": "Diz MR'ı",
+   "stat": "10'da 6",
+   "stat_note": "MR'da menisküs yırtığı çıkan 50 yaş üstü kişilerde dizde ağrı yoktu.",
+   "text": "Yırtık çıktı diye <b>ağrının sebebi</b> o mu?"
+  },
+  {
+   "label": "Ne bulundu",
+   "text": "Yaş ilerledikçe menisküste yıpranma <b>çok sık</b> görülüyor. Çoğu kişi bunu hiç fark etmiyor."
+  },
+  {
+   "label": "Yani",
+   "text": "MR raporu tek başına <b>karar verdirmez.</b> Muayene bulgusuyla birlikte okunur."
+  },
+  {
+   "label": "Kaydedin",
+   "title": "Bu belirtiler varsa <b>muayene</b> şart:",
+   "items": [
+    "Diz kilitleniyor ya da takılıyor",
+    "Belirgin şişlik var",
+    "Ağrı bir burkulmadan sonra başladı",
+    "Merdivende diz boşalıyor"
+   ]
+  },
+  {
+   "label": "Ne yapmalı",
+   "text": "Ameliyat kararından önce <b>doğru tanı</b> ve uygun egzersiz planı."
+  },
+  {
+   "label": "Sonuç",
+   "text": "MR'a değil, <b>dizinize</b> bakalım.",
+   "share": "Diz MR'ı çektiren birine uçurun.",
+   "cta_style": "ribbon",
+   "send_style": "ucus"
+  }
+ ]
+}
