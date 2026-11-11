@@ -37,6 +37,31 @@ HEART = '<svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#ff
 BUBBLE = '<svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.1-4.2A8.5 8.5 0 1 1 20.5 12z"/></svg>'
 
 
+PLANE_FILLED = '<svg width="{w}" height="{w}" viewBox="0 0 24 24" fill="{c}" stroke="{c}" stroke-width="1.2" stroke-linejoin="round"><path d="M22 3 15 21l-3.8-7.9L3 9.5z"/><path d="M22 3 11.2 13.1" stroke="#111" stroke-width="1.4"/></svg>'
+
+
+def send_html(s, acc, sub):
+    """Kurdele stilinin 'gönder' kısmı. send_style: 'ucus' (kesik çizgili uçuş rotası) | 'kisiler' (kime gönderilir çipleri)."""
+    share = s.get("share", "")
+    st = s.get("send_style", "ucus")
+    if st == "kisiler":
+        names = s.get("send_to", ["Annenize", "Eşinize", "Komşunuza"])
+        chips = "".join(
+            f'<div style="display:flex;flex-direction:column;align-items:center;gap:12px">'
+            f'<div style="width:118px;height:118px;border-radius:50%;border:3px dashed {acc};display:flex;align-items:center;justify-content:center;font-family:{SERIF};font-size:52px;font-weight:700;color:{acc}">{n[0]}</div>'
+            f'<div style="font-family:{SANS};font-size:30px;color:#fff">{n}</div></div>' for n in names)
+        return f'''<div style="position:absolute;left:90px;right:90px;bottom:205px">
+<div style="font-family:{SERIF};font-style:italic;font-size:46px;color:{acc};margin-bottom:26px">{share or "Kimin dizi ağrıyor?"}</div>
+<div style="display:flex;align-items:flex-end;gap:40px">{chips}
+<div style="margin-left:auto;width:118px;height:118px;border-radius:50%;background:{acc};display:flex;align-items:center;justify-content:center;transform:rotate(-12deg);box-shadow:0 12px 26px rgba(0,0,0,.3)">{PLANE.format(c="#111")}</div></div></div>'''
+    # 'ucus': kesik çizgili uçuş rotası, uçak rotanın sonunda
+    return f'''<svg style="position:absolute;left:70px;bottom:215px" width="940" height="250" viewBox="0 0 940 250" fill="none">
+<path d="M10 220 C 180 230, 260 120, 420 150 S 700 230, 820 70" stroke="{acc}" stroke-width="5" stroke-dasharray="4 18" stroke-linecap="round"/>
+<circle cx="10" cy="220" r="9" fill="{acc}"/></svg>
+<div style="position:absolute;right:70px;bottom:400px;transform:rotate(-8deg);filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))">{PLANE_FILLED.format(c=acc, w=120)}</div>
+<div style="position:absolute;left:90px;bottom:375px;max-width:600px;font-family:{SERIF};font-style:italic;font-size:48px;line-height:1.15;color:#fff">{share}</div>'''
+
+
 def cta_html(s, acc, sub, style):
     share = s.get("share", "")
     if style == "bar":  # Instagram eylem çubuğu + el çizimi oklar
@@ -50,7 +75,7 @@ def cta_html(s, acc, sub, style):
     if style == "ribbon":  # tepeden sarkan yer imi kurdelesi + alt not
         return f'''<div style="position:absolute;right:110px;top:0;width:120px;height:330px;background:{acc};clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);box-shadow:0 10px 30px rgba(0,0,0,.35);display:flex;align-items:flex-end;justify-content:center;padding-bottom:86px">
 <span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:{SANS};font-weight:700;letter-spacing:6px;font-size:30px;color:#111">KAYDET</span></div>
-<div style="position:absolute;left:90px;bottom:230px;display:flex;align-items:center;gap:20px;font-family:{SANS};font-size:38px;color:{sub}">{PLANE.format(c=acc)}<span>{share}</span></div>'''
+{send_html(s, acc, sub)}'''
     # varsayılan "dm": mesaj balonu taslağı
     return f'''<div style="position:absolute;left:90px;right:160px;bottom:215px">
 <div style="font-family:{SANS};font-size:26px;letter-spacing:4px;color:{sub};margin-bottom:16px">GÖNDERMEK İSTEDİĞİNİZ KİŞİYE</div>
@@ -101,7 +126,7 @@ body{{width:1080px;height:1350px;font-family:{SERIF};color:#fff;background:{th["
 .hd{{font-family:{SANS};font-size:30px;color:{sub};margin-top:6px}}
 .tcnt{{position:absolute;right:90px;top:96px;font-family:{SANS};font-weight:700;font-size:28px;letter-spacing:3px}}
 .label{{position:absolute;left:90px;top:262px;font-family:{SANS};font-weight:700;letter-spacing:5px;font-size:28px;color:{acc};text-transform:uppercase}}
-.blk{{position:absolute;left:90px;right:{'430px' if has_photo else ('260px' if last and s.get('cta_style')=='ribbon' else '90px')};top:330px;bottom:{'560px' if last and s.get('cta_style','dm')!='ribbon' else ('360px' if last else '290px')};display:flex;align-items:center}}
+.blk{{position:absolute;left:90px;right:{'430px' if has_photo else ('260px' if last and s.get('cta_style')=='ribbon' else '90px')};top:330px;bottom:{('560px' if s.get('cta_style','dm')!='ribbon' else '520px') if last else '290px'};display:flex;align-items:center}}
 .blk.col{{flex-direction:column;align-items:flex-start;justify-content:center}}
 .bar{{width:8px;align-self:stretch;background:{acc};margin-right:44px;border-radius:2px}}
 .txt{{font-weight:700;line-height:1.16;letter-spacing:-.5px}}
