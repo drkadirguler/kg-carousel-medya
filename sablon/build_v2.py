@@ -33,6 +33,34 @@ BOOKMARK = '<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="
 PLANE = '<svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="{c}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M22 3 9.2 10.1"/><path d="M22 3 15 21l-3.8-7.9L3 9.5z"/></svg>'
 
 
+HEART = '<svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M12 20s-7-4.4-9.2-8.6C1.3 8.4 3 5 6.4 5c2 0 3.3 1.1 4 2.3h3.2C14.3 6.1 15.6 5 17.6 5 21 5 22.7 8.4 21.2 11.4 19 15.6 12 20 12 20z"/></svg>'
+BUBBLE = '<svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"><path d="M20.5 12a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.1-4.2A8.5 8.5 0 1 1 20.5 12z"/></svg>'
+
+
+def cta_html(s, acc, sub, style):
+    share = s.get("share", "")
+    if style == "bar":  # Instagram eylem çubuğu + el çizimi oklar
+        return f'''<div style="position:absolute;left:90px;right:90px;bottom:225px;height:130px;border-radius:30px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.18);display:flex;align-items:center;padding:0 44px;gap:44px">
+{HEART}{BUBBLE}<span style="filter:drop-shadow(0 0 14px {acc})">{PLANE.format(c=acc).replace('width="60" height="60"','width="62" height="62"')}</span>
+<span style="margin-left:auto;filter:drop-shadow(0 0 14px {acc})"><svg width="62" height="62" viewBox="0 0 24 24" fill="{acc}" stroke="{acc}" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-5-7 5V4a1 1 0 0 1 1-1z"/></svg></span></div>
+<svg style="position:absolute;left:250px;bottom:350px" width="140" height="120" viewBox="0 0 140 120" fill="none" stroke="{acc}" stroke-width="5" stroke-linecap="round"><path d="M20 20 C 60 10, 110 40, 112 95"/><path d="M96 82 L112 98 L124 78"/></svg>
+<div style="position:absolute;left:120px;bottom:470px;font-family:{SERIF};font-style:italic;font-size:46px;color:{acc}">{share or "gönderin"}</div>
+<svg style="position:absolute;right:120px;bottom:350px" width="120" height="120" viewBox="0 0 120 120" fill="none" stroke="{acc}" stroke-width="5" stroke-linecap="round"><path d="M100 18 C 60 20, 30 50, 40 98"/><path d="M26 84 L40 100 L54 84"/></svg>
+<div style="position:absolute;right:110px;bottom:470px;font-family:{SERIF};font-style:italic;font-size:46px;color:{acc}">kaydedin</div>'''
+    if style == "ribbon":  # tepeden sarkan yer imi kurdelesi + alt not
+        return f'''<div style="position:absolute;right:110px;top:0;width:120px;height:330px;background:{acc};clip-path:polygon(0 0,100% 0,100% 100%,50% 84%,0 100%);box-shadow:0 10px 30px rgba(0,0,0,.35);display:flex;align-items:flex-end;justify-content:center;padding-bottom:86px">
+<span style="writing-mode:vertical-rl;transform:rotate(180deg);font-family:{SANS};font-weight:700;letter-spacing:6px;font-size:30px;color:#111">KAYDET</span></div>
+<div style="position:absolute;left:90px;bottom:230px;display:flex;align-items:center;gap:20px;font-family:{SANS};font-size:38px;color:{sub}">{PLANE.format(c=acc)}<span>{share}</span></div>'''
+    # varsayılan "dm": mesaj balonu taslağı
+    return f'''<div style="position:absolute;left:90px;right:160px;bottom:215px">
+<div style="font-family:{SANS};font-size:26px;letter-spacing:4px;color:{sub};margin-bottom:16px">GÖNDERMEK İSTEDİĞİNİZ KİŞİYE</div>
+<div style="display:inline-block;background:#fff;color:#111;font-family:{SANS};font-size:40px;line-height:1.25;padding:26px 34px;border-radius:36px 36px 36px 8px;max-width:760px;box-shadow:0 14px 30px rgba(0,0,0,.25)">{share}</div>
+<div style="display:flex;gap:26px;margin-top:26px;align-items:center">
+<div style="width:96px;height:96px;border-radius:50%;background:{acc};display:flex;align-items:center;justify-content:center">{PLANE.format(c="#111")}</div>
+<div style="width:96px;height:96px;border-radius:50%;border:3px solid {acc};display:flex;align-items:center;justify-content:center">{BOOKMARK.format(c=acc)}</div>
+<div style="font-family:{SERIF};font-style:italic;font-size:40px;color:{sub}">gönderin, kaydedin</div></div></div>'''
+
+
 def photo_tag(s, spec_dir):
     p = s.get("photo")
     if not p:
@@ -63,11 +91,7 @@ def slide_html(i, n, s, th, spec_dir):
 
     cta = ""
     if last:
-        share = s.get("share", "")
-        cta = f'''<div class="cta"><div class="ic">{BOOKMARK.format(c=acc)}<span>Kaydet</span></div>
-<div class="ic">{PLANE.format(c=acc)}<span>Gönder</span></div></div>
-{f'<div class="shareline">{share}</div>' if share else ''}'''
-
+        cta = cta_html(s, acc, sub, s.get("cta_style", "dm"))
     return f"""<!doctype html><html lang="tr"><head><meta charset="utf-8"><style>
 *{{margin:0;padding:0;box-sizing:border-box}}
 body{{width:1080px;height:1350px;font-family:{SERIF};color:#fff;background:{th["bg"]};position:relative;overflow:hidden}}
@@ -77,7 +101,7 @@ body{{width:1080px;height:1350px;font-family:{SERIF};color:#fff;background:{th["
 .hd{{font-family:{SANS};font-size:30px;color:{sub};margin-top:6px}}
 .tcnt{{position:absolute;right:90px;top:96px;font-family:{SANS};font-weight:700;font-size:28px;letter-spacing:3px}}
 .label{{position:absolute;left:90px;top:262px;font-family:{SANS};font-weight:700;letter-spacing:5px;font-size:28px;color:{acc};text-transform:uppercase}}
-.blk{{position:absolute;left:90px;right:{'430px' if has_photo else '90px'};top:330px;bottom:{'360px' if last else '290px'};display:flex;align-items:center}}
+.blk{{position:absolute;left:90px;right:{'430px' if has_photo else ('260px' if last and s.get('cta_style')=='ribbon' else '90px')};top:330px;bottom:{'560px' if last and s.get('cta_style','dm')!='ribbon' else ('360px' if last else '290px')};display:flex;align-items:center}}
 .blk.col{{flex-direction:column;align-items:flex-start;justify-content:center}}
 .bar{{width:8px;align-self:stretch;background:{acc};margin-right:44px;border-radius:2px}}
 .txt{{font-weight:700;line-height:1.16;letter-spacing:-.5px}}
@@ -101,7 +125,7 @@ li{{display:flex;gap:28px;align-items:flex-start;font-family:{SANS};font-size:44
 .shareline{{position:absolute;left:90px;bottom:200px;font-family:{SANS};font-size:34px;color:{sub}}}
 </style></head><body>
 <div class="top"><img class="av" src="data:image/png;base64,{FOTO}"><div><div class="nm">Uzm. Dr. Kadir Güler</div><div class="hd">Fiziksel Tıp ve Rehabilitasyon</div></div></div>
-<div class="tcnt">{i:02d} / {n:02d}</div>
+{'' if last and s.get('cta_style')=='ribbon' else f'<div class="tcnt">{i:02d} / {n:02d}</div>'}
 <div class="label">{label}</div>
 {block}
 {photo_tag(s, spec_dir)}
