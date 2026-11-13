@@ -1,0 +1,44 @@
+{
+ "theme": "petrol",
+ "slides": [
+  {
+   "label": "Koşu ve diz",
+   "stat": "%3,5",
+   "stat_note": "Hobi olarak koşanlarda diz ve kalça kireçlenmesi oranı",
+   "text": "Koşmak dizi gerçekten <b>bitirir mi</b>?"
+  },
+  {
+   "label": "Araştırma ne diyor",
+   "text": "Çok sayıda çalışmayı bir araya getiren büyük bir analizde, <b>keyif için koşanlarda</b> kireçlenme hiç koşmayanlardan daha az görüldü."
+  },
+  {
+   "label": "Asıl fark",
+   "text": "Tablo, yıllarca <b>yarış temposunda</b> koşanlarda değişiyor. Sorun koşunun kendisi değil, dozu."
+  },
+  {
+   "label": "Eklem ne ister",
+   "text": "Kıkırdak hareketle beslenir. Ölçülü yük eklemi <b>aşındırmaz</b>, çalıştırır. Uzun süre hareketsiz kalmak da dize iyi gelmez."
+  },
+  {
+   "label": "Kaydedin",
+   "title": "Başlamadan önce",
+   "items": [
+    "Yürüyüşle başlayın, süreyi yavaş yavaş artırın",
+    "Haftalık mesafeyi bir anda yükseltmeyin",
+    "Ağrı ertesi güne kalıyorsa bir adım geri çekilin",
+    "Eski bir diz sakatlığınız varsa önce muayene olun"
+   ]
+  },
+  {
+   "label": "Ne zaman ara vermeli",
+   "text": "Diziniz <b>şişiyor</b>, kilitleniyor ya da ağrı dinlenince geçmiyorsa koşuyu bırakıp muayene olun."
+  },
+  {
+   "label": "Sonuç",
+   "text": "Dizin düşmanı hareket değil; <b>hareketsizlik ve aşırı yük</b>. Ölçülü koşu birçok kişi için güvenli bir seçenek.",
+   "share": "“Koşma, dizin biter” diyen birine uçurun.",
+   "cta_style": "ribbon",
+   "send_style": "ucus"
+  }
+ ]
+}
