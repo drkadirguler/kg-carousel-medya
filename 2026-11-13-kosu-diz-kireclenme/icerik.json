@@ -27,7 +27,8 @@
     "Haftalık mesafeyi bir anda yükseltmeyin",
     "Ağrı ertesi güne kalıyorsa bir adım geri çekilin",
     "Eski bir diz sakatlığınız varsa önce muayene olun"
-   ]
+   ],
+   "list_style": "rota"
   },
   {
    "label": "Ne zaman ara vermeli",
@@ -36,7 +37,7 @@
   {
    "label": "Sonuç",
    "text": "Dizin düşmanı hareket değil; <b>hareketsizlik ve aşırı yük</b>. Ölçülü koşu birçok kişi için güvenli bir seçenek.",
-   "share": "“Koşma, dizin biter” diyen birine uçurun.",
+   "share": "“Koşma, dizin biter” diyen birine gönderin.",
    "cta_style": "ribbon",
    "send_style": "ucus"
   }
