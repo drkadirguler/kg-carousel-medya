@@ -1,7 +1,7 @@
 """Carousel şablonu v2 (11 Kasım 2026).
 Kullanım: python3 build_v2.py icerik.json cikti_klasoru [slayt_no]
 icerik.json:
-{"theme":"petrol"|"firtina",
+{"theme":"petrol"|"firtina"|"kemik"|"adacayi"|"bordo",
  "slides":[
   {"label":"…","stat":"10'da 6","stat_note":"kısa açıklama","text":"… <b>vurgu</b> …"},   # kapak (rakamlı)
   {"label":"…","text":"… <b>vurgu</b> …"},                                               # normal slayt
@@ -18,7 +18,12 @@ SANS = "'Carlito','DejaVu Sans',sans-serif"
 THEMES = {
     "petrol":  {"bg": "radial-gradient(circle at 80% 15%,#2C6E9E 0,#13697A 45%,#0A3A4E 100%)", "acc": "#FFD23F", "sub": "#BFE3EE"},
     "firtina": {"bg": "radial-gradient(circle at 80% 15%,#4A5568 0,#2D3748 45%,#151A23 100%)", "acc": "#FF7A59", "sub": "#CBD5E0"},
+    # açık temalar (16 Kas 2026 önizleme): koyu yazı, açık zemin
+    "kemik":   {"bg": "radial-gradient(circle at 80% 15%,#FFFDF8 0,#F5EEE1 50%,#E9DEC9 100%)", "acc": "#C8452B", "sub": "#5E6472", "fg": "#1C2541", "line": "rgba(28,37,65,.18)"},
+    "adacayi": {"bg": "radial-gradient(circle at 80% 15%,#F2F7F2 0,#DCE8DF 50%,#C5D8CB 100%)", "acc": "#B5432F", "sub": "#4A6157", "fg": "#14302A", "line": "rgba(20,48,42,.18)"},
+    "bordo":   {"bg": "radial-gradient(circle at 80% 15%,#9B2C3A 0,#6E1A27 45%,#3A0C14 100%)", "acc": "#FFC48A", "sub": "#F1D3D6"},
 }
+FG = "#fff"; LINE = "rgba(255,255,255,.22)"; LINE2 = "rgba(255,255,255,.14)"
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -49,7 +54,7 @@ def send_html(s, acc, sub):
         chips = "".join(
             f'<div style="display:flex;flex-direction:column;align-items:center;gap:12px">'
             f'<div style="width:118px;height:118px;border-radius:50%;border:3px dashed {acc};display:flex;align-items:center;justify-content:center;font-family:{SERIF};font-size:52px;font-weight:700;color:{acc}">{n[0]}</div>'
-            f'<div style="font-family:{SANS};font-size:30px;color:#fff">{n}</div></div>' for n in names)
+            f'<div style="font-family:{SANS};font-size:30px;color:{FG}">{n}</div></div>' for n in names)
         return f'''<div style="position:absolute;left:90px;right:90px;bottom:205px">
 <div style="font-family:{SERIF};font-style:italic;font-size:46px;color:{acc};margin-bottom:26px">{share or "Kimin dizi ağrıyor?"}</div>
 <div style="display:flex;align-items:flex-end;gap:40px">{chips}
@@ -59,7 +64,7 @@ def send_html(s, acc, sub):
 <path d="M10 220 C 180 230, 260 120, 420 150 S 700 230, 820 70" stroke="{acc}" stroke-width="5" stroke-dasharray="4 18" stroke-linecap="round"/>
 <circle cx="10" cy="220" r="9" fill="{acc}"/></svg>
 <div style="position:absolute;right:70px;bottom:400px;transform:rotate(-8deg);filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))">{PLANE_FILLED.format(c=acc, w=120)}</div>
-<div style="position:absolute;left:90px;bottom:375px;max-width:600px;font-family:{SERIF};font-style:italic;font-size:48px;line-height:1.15;color:#fff">{share}</div>'''
+<div style="position:absolute;left:90px;bottom:375px;max-width:600px;font-family:{SERIF};font-style:italic;font-size:48px;line-height:1.15;color:{FG}">{share}</div>'''
 
 
 def cta_html(s, acc, sub, style):
@@ -123,7 +128,7 @@ def slide_html(i, n, s, th, spec_dir):
         cta = cta_html(s, acc, sub, s.get("cta_style", "dm"))
     return f"""<!doctype html><html lang="tr"><head><meta charset="utf-8"><style>
 *{{margin:0;padding:0;box-sizing:border-box}}
-body{{width:1080px;height:1350px;font-family:{SERIF};color:#fff;background:{th["bg"]};position:relative;overflow:hidden}}
+body{{width:1080px;height:1350px;font-family:{SERIF};color:{FG};background:{th["bg"]};position:relative;overflow:hidden}}
 .top{{position:absolute;left:90px;top:80px;display:flex;align-items:center;gap:26px}}
 .av{{width:124px;height:124px;border-radius:50%}}
 .nm{{font-size:46px;font-weight:700;line-height:1.1}}
@@ -146,11 +151,11 @@ ul.rota{{position:relative;gap:34px;padding-left:4px}}
 li.rli{{align-items:center;gap:30px}}
 .rnum{{flex:0 0 120px;position:relative;z-index:1;font-family:{SERIF};font-style:italic;font-weight:700;font-size:76px;line-height:1;color:{acc};text-align:center;letter-spacing:-2px}}
 li.rli:not(:last-child) .rnum:after{{content:"";position:absolute;left:58px;top:84px;height:44px;border-left:4px dotted {acc};opacity:.6}}
-.rtx{{padding-bottom:4px;border-bottom:2px solid rgba(255,255,255,.14)}}
+.rtx{{padding-bottom:4px;border-bottom:2px solid {LINE2}}}
 .ph{{position:absolute;right:60px;bottom:220px;width:340px;height:440px;object-fit:cover;border-radius:28px;box-shadow:0 18px 40px rgba(0,0,0,.35)}}
 .foot{{position:absolute;left:90px;right:90px;bottom:62px;display:flex;align-items:center;gap:26px;font-family:{SANS}}}
 .logo{{width:118px;height:118px}}
-.track{{flex:1;height:8px;background:rgba(255,255,255,.22);border-radius:4px;position:relative}}
+.track{{flex:1;height:8px;background:{LINE};border-radius:4px;position:relative}}
 .fill{{position:absolute;left:0;top:0;bottom:0;width:{pct}%;background:{acc};border-radius:4px}}
 .dot{{position:absolute;left:{pct}%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:{acc}}}
 .kaydir{{font-weight:700;font-size:30px;letter-spacing:2px}}
@@ -171,6 +176,8 @@ li.rli:not(:last-child) .rnum:after{{content:"";position:absolute;left:58px;top:
 async def main(spec_path, outdir, only=None):
     spec = json.load(open(spec_path, encoding="utf-8"))
     th = THEMES[spec.get("theme", "petrol")]
+    global FG, LINE, LINE2
+    FG = th.get("fg", "#fff"); LINE = th.get("line", "rgba(255,255,255,.22)"); LINE2 = th.get("line", "rgba(255,255,255,.14)")
     slides = spec["slides"]
     n = len(slides)
     spec_dir = os.path.dirname(os.path.abspath(spec_path))

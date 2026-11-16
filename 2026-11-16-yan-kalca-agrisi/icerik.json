@@ -1,12 +1,44 @@
 {
  "theme": "firtina",
  "slides": [
-  {"label": "Yan kalça ağrısı", "stat": "4'te 1", "stat_note": "50 yaş üstü kadınlarda kalçanın yan tarafında ağrı görülme sıklığı", "text": "Gece o tarafa <b>yatamıyor</b> musunuz?"},
-  {"label": "Ağrı nerede", "text": "Kasıkta değil, kalçanın <b>yan tarafında</b>, o sivri kemik çıkıntısının üstünde. Çoğu zaman uyluğun dışına doğru iner."},
-  {"label": "Ne oluyor", "text": "Burada kalçayı yana açan kasların <b>tendonları</b> kemiğe tutunur. Tendon sıkışıp fazla yüklenince ağrır. Eskiden buna sadece \"bursit\" denirdi."},
-  {"label": "Kimde sık", "text": "Kadınlarda erkeklerden belirgin daha sık. Bel ağrısı ya da diz kireçlenmesi olanlarda <b>birlikte görülmesi</b> yaygın. Her yan kalça ağrısı kireçlenme demek değil."},
-  {"label": "Kaydedin", "title": "Tendonu rahatlatan <b>4 küçük değişiklik</b>", "items": ["Ağrımayan tarafa yatın, dizlerinizin arasına yastık koyun", "Bacak bacak üstüne atmayın", "Ayakta ağırlığı tek kalçaya verip kalçayı yana çıkarmayın", "Çok alçak koltuklarda uzun süre oturmayın"]},
-  {"label": "Ne zaman muayene", "text": "Ağrı kasığa vuruyor, sizi topallatıyor, bir düşmeden sonra başladıysa ya da haftalardır geçmiyorsa <b>muayene olun</b>."},
-  {"label": "Sonuç", "text": "Yan kalça ağrısının çoğu zaman sebebi eklem değil, <b>tendon</b>. Doğru tanıyla hareket ve günlük alışkanlık ayarı çoğu kişide işe yarar.", "share": "Gece yan yatamadığından yakınan birine gönderin.", "cta_style": "ribbon", "send_style": "ucus"}
+  {
+   "label": "Yan kalça ağrısı",
+   "stat": "4'te 1",
+   "stat_note": "50–79 yaş kadınlarda yaklaşık 4'te 1'inde kalçanın yan tarafında ağrı var",
+   "text": "Gece o tarafa <b>yatamıyor</b> musunuz?"
+  },
+  {
+   "label": "Ağrı nerede",
+   "text": "Kasıkta değil, kalçanın <b>yan tarafında</b>, o sivri kemik çıkıntısının üstünde. Çoğu zaman uyluğun dışına doğru iner."
+  },
+  {
+   "label": "Ne oluyor",
+   "text": "Burada kalçayı yana açan kasların <b>tendonları</b> kemiğe tutunur. Tendon sıkışıp fazla yüklenince ağrır. Eskiden buna sadece \"bursit\" denirdi."
+  },
+  {
+   "label": "Kimde sık",
+   "text": "Kadınlarda erkeklerden belirgin daha sık. Bel ağrısı ya da diz kireçlenmesi olanlarda <b>birlikte görülmesi</b> yaygın. Her yan kalça ağrısı kireçlenme demek değil."
+  },
+  {
+   "label": "Kaydedin",
+   "title": "Tendonu rahatlatan <b>4 küçük değişiklik</b>",
+   "items": [
+    "Ağrımayan tarafa yatın, dizlerinizin arasına yastık koyun",
+    "Bacak bacak üstüne atmayın",
+    "Ayakta ağırlığı tek kalçaya verip kalçayı yana çıkarmayın",
+    "Çok alçak koltuklarda uzun süre oturmayın"
+   ]
+  },
+  {
+   "label": "Ne zaman muayene",
+   "text": "Ağrı kasığa vuruyor, sizi topallatıyor, bir düşmeden sonra başladıysa ya da haftalardır geçmiyorsa <b>muayene olun</b>."
+  },
+  {
+   "label": "Sonuç",
+   "text": "Yan kalça ağrısının çoğu zaman sebebi eklem değil, <b>tendon</b>. Doğru tanıyla hareket ve günlük alışkanlık ayarı çoğu kişide işe yarar.",
+   "share": "Gece yan yatamadığından yakınan birine gönderin.",
+   "cta_style": "ribbon",
+   "send_style": "ucus"
+  }
  ]
 }
