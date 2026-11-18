@@ -1,0 +1,8 @@
+{"theme":"petrol","slides":[
+{"label":"Kemik sağlığı","stat":"2'de 1","stat_note":"45 yaşını geçen kadınların neredeyse yarısı, ileride kemik kırığı yaşayabilir. (İsveç verisi)","text":"Kemik erimesi çoğu zaman <b>kırılana kadar</b> fark edilmez."},
+{"label":"Sessiz ilerler","text":"Kemik erimesi çoğu zaman ağrı yapmaz. Çoğu kişi bunu <b>ilk kırıkta</b> öğrenir."},
+{"label":"En sık nereler","text":"Kalça, omurga, el bileği ve omuz. Bunların içinde <b>kalça kırığı</b> en ağır olanı."},
+{"label":"Kaydedin","title":"Bu durumlar varsa <b>kemik ölçümünü</b> doktorunuza sorun:","items":["Menopoza erken girdiyseniz","Uzun süre kortizon kullandıysanız","Anne ya da babanızda kalça kırığı varsa","Küçük bir düşmede kemiğiniz kırıldıysa"]},
+{"label":"Ne yapmalı","text":"Düzenli yürüyüş ve güç egzersizi, yeterli güneş ve kalsiyum, evde <b>düşmeyi önleyen</b> küçük önlemler."},
+{"label":"Sonuç","text":"Kemiği <b>kırılmadan önce</b> ölçmek mümkün.","cta_style":"ribbon","send_style":"ucus","share":"Annenize gönderin, kemik ölçümü olmuş mu sorun."}
+]}
