@@ -21,6 +21,9 @@ THEMES = {
     # açık temalar (16 Kas 2026 önizleme): koyu yazı, açık zemin
     "kemik":   {"bg": "radial-gradient(circle at 80% 15%,#FFFDF8 0,#F5EEE1 50%,#E9DEC9 100%)", "acc": "#C8452B", "sub": "#5E6472", "fg": "#1C2541", "line": "rgba(28,37,65,.18)"},
     "adacayi": {"bg": "radial-gradient(circle at 80% 15%,#F2F7F2 0,#DCE8DF 50%,#C5D8CB 100%)", "acc": "#B5432F", "sub": "#4A6157", "fg": "#14302A", "line": "rgba(20,48,42,.18)"},
+    "zeytin":  {"bg": "radial-gradient(circle at 80% 15%,#5E6B35 0,#3E4822 45%,#1F2610 100%)", "acc": "#F4D58D", "sub": "#DCE3C3"},
+    "lacivert": {"bg": "radial-gradient(circle at 80% 15%,#2B3A8C 0,#1A245E 45%,#0B1033 100%)", "acc": "#FF9A76", "sub": "#C9D0F2"},
+    "murdum":  {"bg": "radial-gradient(circle at 80% 15%,#6B3A7D 0,#47225A 45%,#22102E 100%)", "acc": "#8EE3C8", "sub": "#E2CFEA"},
     "bordo":   {"bg": "radial-gradient(circle at 80% 15%,#9B2C3A 0,#6E1A27 45%,#3A0C14 100%)", "acc": "#FFC48A", "sub": "#F1D3D6"},
 }
 FG = "#fff"; LINE = "rgba(255,255,255,.22)"; LINE2 = "rgba(255,255,255,.14)"
