@@ -122,6 +122,15 @@ def slide_html(i, n, s, th, spec_dir):
         else:
             lis = "".join(f'<li><span class="num">{k}</span><span>{t}</span></li>' for k, t in enumerate(s["items"], 1))
             block = f'<div class="blk col"><div class="ltitle">{s.get("title","")}</div><ul>{lis}</ul></div>'
+    elif "spot" in s:  # NERESİ: gerçek fotoğraf + numaralı işaretler, altta kısa metin
+        sp = s["spot"]; pp = sp["photo"] if os.path.isabs(sp["photo"]) else os.path.join(spec_dir, sp["photo"])
+        mt = mimetypes.guess_type(pp)[0] or "image/jpeg"
+        mk = "".join(
+            f'<div class="mk{" on" if m.get("active") else ""}" style="left:{m["x"]*100:.1f}%;top:{m["y"]*100:.1f}%"><span>{m.get("n","")}</span></div>'
+            for m in sp.get("markers", []))
+        hgt = 620 if s.get("cover") else 580
+        block = (f'<div class="spot" style="height:{hgt}px"><img src="data:{mt};base64,{b64(pp)}" style="object-position:{sp.get("pos","50% 50%")}">{mk}</div>'
+                 f'<div class="illtx" style="top:{320+hgt+40}px;{"font-size:64px" if s.get("cover") else ""}">{s.get("text","")}</div>')
     elif "illus" in s:  # çizim slaytı: üstte çizim, altta kısa metin
         ip = s["illus"] if os.path.isabs(s["illus"]) else os.path.join(spec_dir, s["illus"])
         svg = open(ip, encoding="utf-8").read().replace("{FG}", FG).replace("{ACC}", acc).replace("{SUB}", sub).replace("{LINE}", LINE)
@@ -159,6 +168,10 @@ li.rli{{align-items:center;gap:30px}}
 .rnum{{flex:0 0 120px;position:relative;z-index:1;font-family:{SERIF};font-style:italic;font-weight:700;font-size:76px;line-height:1;color:{acc};text-align:center;letter-spacing:-2px}}
 li.rli:not(:last-child) .rnum:after{{content:"";position:absolute;left:58px;top:84px;height:44px;border-left:4px dotted {acc};opacity:.6}}
 .rtx{{padding-bottom:4px;border-bottom:2px solid {LINE2}}}
+.spot{{position:absolute;left:70px;right:70px;top:320px;border-radius:36px;overflow:hidden;box-shadow:0 14px 34px rgba(0,0,0,.18)}}
+.spot img{{width:100%;height:100%;object-fit:cover;display:block}}
+.mk{{position:absolute;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;background:rgba(255,255,255,.92);border:5px solid {acc};display:flex;align-items:center;justify-content:center;font-family:{SANS};font-weight:700;font-size:34px;color:{acc};box-shadow:0 6px 16px rgba(0,0,0,.25)}}
+.mk.on{{background:{acc};color:#fff;width:92px;height:92px;margin:-46px 0 0 -46px;box-shadow:0 0 0 14px rgba(255,255,255,.35),0 6px 16px rgba(0,0,0,.25)}}
 .ill{{position:absolute;left:70px;right:70px;top:320px;height:600px;border-radius:36px;background:{LINE2};display:flex;align-items:center;justify-content:center}}
 .ill svg{{width:100%;height:100%}}
 .illtx{{position:absolute;left:90px;right:90px;top:960px;font-weight:700;font-size:56px;line-height:1.18;letter-spacing:-.5px}}
