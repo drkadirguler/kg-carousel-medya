@@ -1,0 +1,21 @@
+<svg viewBox="0 0 940 600" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="112" y="50" width="28" height="446" rx="6" fill="{FG}" fill-opacity=".22"/>
+  <line x1="112" y1="496" x2="870" y2="496" stroke="{FG}" stroke-opacity=".22" stroke-width="6"/>
+  <!-- arkadaki bacak düz -->
+  <path d="M478 336 L 604 400 L 722 456" stroke="{FG}" stroke-width="40"/>
+  <path d="M624 422 L 714 466" stroke="{ACC}" stroke-width="16"/>
+  <path d="M736 484 L 676 484 L 700 462 L 730 462 Z" fill="{FG}" stroke="{FG}" stroke-width="10"/>
+  <!-- öndeki bacak bükük -->
+  <path d="M474 336 L 390 380 L 414 462" stroke="{FG}" stroke-width="40"/>
+  <path d="M428 484 L 362 484 L 380 466 L 420 466 Z" fill="{FG}" stroke="{FG}" stroke-width="10"/>
+  <!-- gövde duvara eğik -->
+  <path d="M478 332 L 334 206" stroke="{FG}" stroke-width="54"/>
+  <path d="M318 192 L 300 176" stroke="{FG}" stroke-width="22"/>
+  <circle cx="276" cy="140" r="44" fill="{FG}"/>
+  <!-- kollar duvarda -->
+  <path d="M330 214 L 244 226 L 156 206" stroke="{FG}" stroke-width="24"/>
+  <circle cx="152" cy="204" r="15" fill="{FG}"/>
+  <!-- ok: topuk yere -->
+  <path d="M780 366 L 780 450" stroke="{ACC}" stroke-width="10"/>
+  <path d="M758 428 L 780 454 L 802 428" stroke="{ACC}" stroke-width="10"/>
+</svg>

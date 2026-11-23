@@ -1,0 +1,21 @@
+<svg viewBox="0 0 940 600" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <line x1="60" y1="486" x2="880" y2="486" stroke="{FG}" stroke-opacity=".22" stroke-width="6"/>
+  <!-- bacak -->
+  <path d="M232 444 L 470 452 L 698 452" stroke="{FG}" stroke-width="42"/>
+  <!-- baldır (kramp bölgesi) -->
+  <path d="M528 462 L 684 462" stroke="{ACC}" stroke-width="16"/>
+  <!-- ayak: topuk yerde, parmak ucu size doğru -->
+  <path d="M684 474 L 726 474 L 768 382 L 744 372 L 700 432 Z" fill="{FG}" stroke="{FG}" stroke-width="10"/>
+  <!-- gövde öne eğik -->
+  <path d="M236 438 L 336 292" stroke="{FG}" stroke-width="54"/>
+  <path d="M344 276 L 360 254" stroke="{FG}" stroke-width="22"/>
+  <circle cx="378" cy="214" r="44" fill="{FG}"/>
+  <!-- kol -->
+  <path d="M334 300 L 462 336 L 586 362" stroke="{FG}" stroke-width="24"/>
+  <circle cx="592" cy="364" r="16" fill="{FG}"/>
+  <!-- havlu ayağın önünden dolanıyor -->
+  <path d="M600 352 Q 690 336 760 364 Q 790 384 754 412 Q 680 396 604 376" stroke="{SUB}" stroke-width="11"/>
+  <!-- ok -->
+  <path d="M846 360 C 850 296, 812 262, 764 268" stroke="{ACC}" stroke-width="10"/>
+  <path d="M786 248 L 762 268 L 788 290" stroke="{ACC}" stroke-width="10"/>
+</svg>

@@ -122,6 +122,10 @@ def slide_html(i, n, s, th, spec_dir):
         else:
             lis = "".join(f'<li><span class="num">{k}</span><span>{t}</span></li>' for k, t in enumerate(s["items"], 1))
             block = f'<div class="blk col"><div class="ltitle">{s.get("title","")}</div><ul>{lis}</ul></div>'
+    elif "illus" in s:  # çizim slaytı: üstte çizim, altta kısa metin
+        ip = s["illus"] if os.path.isabs(s["illus"]) else os.path.join(spec_dir, s["illus"])
+        svg = open(ip, encoding="utf-8").read().replace("{FG}", FG).replace("{ACC}", acc).replace("{SUB}", sub).replace("{LINE}", LINE)
+        block = f'<div class="ill">{svg}</div><div class="illtx">{s.get("text","")}</div>'
     else:
         big = s.get("big", False)
         block = f'<div class="blk"><div class="bar"></div><div class="txt" style="font-size:{96 if big else 66}px">{s["text"]}</div></div>'
@@ -155,6 +159,10 @@ li.rli{{align-items:center;gap:30px}}
 .rnum{{flex:0 0 120px;position:relative;z-index:1;font-family:{SERIF};font-style:italic;font-weight:700;font-size:76px;line-height:1;color:{acc};text-align:center;letter-spacing:-2px}}
 li.rli:not(:last-child) .rnum:after{{content:"";position:absolute;left:58px;top:84px;height:44px;border-left:4px dotted {acc};opacity:.6}}
 .rtx{{padding-bottom:4px;border-bottom:2px solid {LINE2}}}
+.ill{{position:absolute;left:70px;right:70px;top:320px;height:600px;border-radius:36px;background:{LINE2};display:flex;align-items:center;justify-content:center}}
+.ill svg{{width:100%;height:100%}}
+.illtx{{position:absolute;left:90px;right:90px;top:960px;font-weight:700;font-size:56px;line-height:1.18;letter-spacing:-.5px}}
+.illtx b{{color:{acc}}}
 .ph{{position:absolute;right:60px;bottom:220px;width:340px;height:440px;object-fit:cover;border-radius:28px;box-shadow:0 18px 40px rgba(0,0,0,.35)}}
 .foot{{position:absolute;left:90px;right:90px;bottom:62px;display:flex;align-items:center;gap:26px;font-family:{SANS}}}
 .logo{{width:118px;height:118px}}

@@ -1,0 +1,9 @@
+{"theme":"adacayi","slides":[
+{"label":"Gece krampı","stat":"3'te 1","stat_note":"60 yaş üstü kişilerin yaklaşık 3'te 1'i gece kramp yüzünden uyanıyor.","text":"Gece baldırınıza giren kramp <b>sizi de uyandırıyor</b> mu?"},
+{"label":"Yalnız değilsiniz","text":"Gece krampı yaş ilerledikçe sıklaşıyor. Çoğu zaman <b>baldırda</b> başlıyor."},
+{"label":"Kramp anında","illus":"baldir_oturarak.svg","text":"Bacağınızı uzatın, ayak ucunuzu <b>kendinize doğru</b> çekin. Kas gevşeyene kadar tutun."},
+{"label":"Ayaktaysanız","illus":"baldir_duvar.svg","text":"Ellerinizi duvara dayayın, arkadaki <b>topuğu yere</b> basın. Baldırda gerilmeyi hissedin."},
+{"label":"Kaydedin","title":"Gece krampını <b>azaltmak için:</b>","items":["Yatmadan önce baldırınızı esnetin","Gün içinde yeterli su için","Uzun süre aynı pozisyonda oturmayın","Kullandığınız ilaçları doktorunuzla gözden geçirin"]},
+{"label":"Dikkat","text":"Bacakta şişlik, kızarıklık, tek taraflı ağrı ya da güçsüzlük varsa <b>krampla karıştırmayın,</b> muayene olun."},
+{"label":"Sonuç","text":"Kramp sık geliyorsa <b>nedeni</b> araştırılmalı.","cta_style":"ribbon","send_style":"ucus","share":"Gece baldırı kasılan birine gönderin."}
+]}
